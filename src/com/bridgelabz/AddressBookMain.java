@@ -2,6 +2,7 @@ package com.bridgelabz;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Address Book system");
+        Contact contact = new Contact("kiran","NimkampalliRoad","anantapur","AP","makamkiran95@gmail.com",
+                                        96669291,515201);
     }
 }
