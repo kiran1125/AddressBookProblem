@@ -2,7 +2,8 @@ package com.bridgelabz;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        ContactsManager contactsManager = new ContactsManager();
-        contactsManager.addingContact();
+        AddressBook contacts = new AddressBook();
+        contacts.addingContact();
+        contacts.addingContact();
     }
 }

@@ -1,13 +1,17 @@
 package com.bridgelabz;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
  *This class is to manage the contacts
  */
-public class ContactsManager {
+public class AddressBook {
     //Attributes
     Scanner sc = new Scanner(System.in);
+    //collection to store the multiple contacts
+    Map<String,Contact> contactsList = new HashMap<>();
     Contact contact;
     /**
      * this method is to add the contact
@@ -36,8 +40,10 @@ public class ContactsManager {
         System.out.println("Enter the zipcode");
         //defining the zipcode given by user
         long zipCode = sc.nextLong();
-        //creating a contact
+        //creating a contact with the user input
         contact = new Contact(name, address, city, state, email, phoneNumber, zipCode);
+        //adding the contact in to the map using contact name as key and value as contact object
+        contactsList.put(contact.name, contact);
     }
 
     /**
