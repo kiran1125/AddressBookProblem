@@ -54,8 +54,10 @@ public class AddressBook {
         System.out.println("Enter the Name of contact to Edit");
         //taking the name from the user
         String name1 = sc.next();
-        //checking the condition if the name which was added contact
-        if (contact.name.equals (name1)) {
+            //checking the condition if the name is in  contactslist
+        if (contactsList.containsKey(name1)) {
+            //assigning the that key to the editcontact
+            Contact editContact = contactsList.get(name1);
             //printing the statements that user want to choose
             System.out.println("\n1 : Change the name");
             System.out.println("2 : Change the address");
@@ -65,53 +67,67 @@ public class AddressBook {
             System.out.println("6 : Change the Phone number");
             System.out.println("7 : Change the zipcode");
             System.out.println("0 : Exit");
-            //taking user input as selection and checking that with switch case
+                //taking user input as selection and checking that with switch case
             int selection = sc.nextInt();
             switch (selection) {
                 case 1: {
                     System.out.println("Enter new Name");
-                    contact.name = sc.next();       //changes the name to user defined name
+                    editContact.name = sc.next();       //changes the name to user defined name
                     break;
                 }
-                case 2: {
-                    System.out.println("Enter new address");
-                    contact.address = sc.next();           //changes the address by user defined address
-                    break;
+                    case 2: {
+                        System.out.println("Enter new address");
+                        editContact.address = sc.next();           //changes the address by user defined address
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("Enter the new city");
+                        editContact.city = sc.next();
+                        break;
+                    }
+                    case 4: {
+                        System.out.println("Enter the new state");
+                        editContact.state = sc.next();         //Changes the state
+                        break;
+                    }
+                    case 5: {
+                        System.out.println("Enter the new email");
+                        editContact.email = sc.next();        //Changes the email
+                        break;
+                    }
+                    case 6: {
+                        System.out.println("Enter the new phoneNumber");
+                        editContact.phoneNumber = sc.nextLong();     //changes the phone number
+                        break;
+                    }
+                    case 7: {
+                        System.out.println("Enter the new Zipcode");
+                        editContact.zipCode = sc.nextLong();         //changes the zipCode
+                        break;
+                    }
+                    default:
+                        break;
                 }
-                case 3: {
-                    System.out.println("Enter the new city");
-                    contact.city = sc.next();
-                    break;
-                }
-                case 4: {
-                    System.out.println("Enter the new state");
-                    contact.state = sc.next();         //Changes the state
-                    break;
-                }
-                case 5: {
-                    System.out.println("Enter the new email");
-                    contact.email = sc.next();        //Changes the email
-                    break;
-                }
-                case 6: {
-                    System.out.println("Enter the new phoneNumber");
-                    contact.phoneNumber = sc.nextLong();     //changes the phone number
-                    break;
-                }
-                case 7: {
-                    System.out.println("Enter the new Zipcode");
-                    contact.zipCode = sc.nextLong();         //changes the zipCode
-                    break;
-                }
-                default:
-                    break;
-            }
-            System.out.println("After Editing the contact");
-            //  To print the contact after Editing
-            System.out.println(contact.name + " " +contact.state + " " + contact.address + " " +contact.city + " " + contact.email + " " +contact.phoneNumber + " " + contact.zipCode);
+                System.out.println("After Editing the contact");
+                //  To print the contact after Editing
+                System.out.println(editContact.name + " " + editContact.state + " " + editContact.address + " "
+                        + editContact.city + " " + editContact.email + " " + editContact.phoneNumber +
+                        " " + editContact.zipCode);
         }
     }
     public void deleteContact(){
-        //there is no delete for an object if we don't use it it will automatically deletes the object which doent refered
+        //printing the statement that user to enter the name
+        System.out.println("Enter the name that you want to delete");
+        //defining the user input to lacal variable
+        String name2 = sc.next();
+        //checking the name exists in the contactsList
+        if (contactsList.containsKey(name2)){
+            //it will remove the contact using that key
+            contactsList.remove(name2);
+        }
+
+    }
+    public void printContactsList(){
+        System.out.println(contactsList);
     }
 }
