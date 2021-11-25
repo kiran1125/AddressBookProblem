@@ -21,6 +21,10 @@ public class AddressBook {
         System.out.println("Enter the name");
         //assigning the name given by user to the name
         String name = sc.next();
+        if (contactsList.containsKey(name)){
+            System.out.println("Contact already exists");
+            System.out.println("It will just update the existing details");
+        }
         System.out.println("Enter the address");
         //defining the address given by user
         String address = sc.next();
@@ -54,9 +58,9 @@ public class AddressBook {
         System.out.println("Enter the Name of contact to Edit");
         //taking the name from the user
         String name1 = sc.next();
-            //checking the condition if the name is in  contactslist
+            //checking the condition if the name is in  contactsList
         if (contactsList.containsKey(name1)) {
-            //assigning the that key to the editcontact
+            //assigning the that key to the editContact
             Contact editContact = contactsList.get(name1);
             //printing the statements that user want to choose
             System.out.println("\n1 : Change the name");
@@ -118,7 +122,7 @@ public class AddressBook {
     public void deleteContact(){
         //printing the statement that user to enter the name
         System.out.println("Enter the name that you want to delete");
-        //defining the user input to lacal variable
+        //defining the user input to Local variable
         String name2 = sc.next();
         //checking the name exists in the contactsList
         if (contactsList.containsKey(name2)){
