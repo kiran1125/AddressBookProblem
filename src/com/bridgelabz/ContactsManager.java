@@ -104,7 +104,8 @@ public class ContactsManager {
             //  To print the contact after Editing
             System.out.println(contact.name + " " +contact.state + " " + contact.address + " " +contact.city + " " + contact.email + " " +contact.phoneNumber + " " + contact.zipCode);
         }
-
-
+    }
+    public void deleteContact(){
+        //there is no delete for an object if we don't use it it will automatically deletes the object which doent refered
     }
 }
