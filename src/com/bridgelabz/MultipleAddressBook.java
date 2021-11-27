@@ -7,8 +7,7 @@ public class MultipleAddressBook {
     Map<String, AddressBook> multipleAddressBook = new HashMap<>();
     //using scanner class to take input from the User
     Scanner sc = new Scanner(System.in);
-    List<Contact> searchedList = new ArrayList<>();
-
+    List<Contact> cityList = new ArrayList<>();
     /**
      * this method is to add addressBook to the multipleAddressBook
      */
@@ -67,7 +66,6 @@ public class MultipleAddressBook {
         }
     }
     public void searchContactUsingCity(){
-        AddressBook addressBook = new AddressBook();
         //printing the statement
         System.out.println("Enter the name of the city that want to search");
         //assigning the user input to the searchCity variable
@@ -76,8 +74,7 @@ public class MultipleAddressBook {
         multipleAddressBook.forEach((k,v) -> {
             v.contactsList.forEach((x,y) -> {
                 if (y.city.equals(searchCity)){
-                    Contact searchResult = y;
-                    System.out.println(searchResult.toString());
+                   cityList.add(y);
                 }
             });
         });
