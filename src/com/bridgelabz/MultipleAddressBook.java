@@ -1,14 +1,13 @@
 package com.bridgelabz;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class MultipleAddressBook {
     //collection to store the addressBook
     Map<String, AddressBook> multipleAddressBook = new HashMap<>();
     //using scanner class to take input from the User
     Scanner sc = new Scanner(System.in);
+    List<Contact> searchedList = new ArrayList<>();
 
     /**
      * this method is to add addressBook to the multipleAddressBook
@@ -66,5 +65,21 @@ public class MultipleAddressBook {
             //add that contact into that address book
             addressBook.deleteContact();
         }
+    }
+    public void searchContactUsingCity(){
+        AddressBook addressBook = new AddressBook();
+        //printing the statement
+        System.out.println("Enter the name of the city that want to search");
+        //assigning the user input to the searchCity variable
+        String searchCity = sc.next();
+        //search through the multiple AddressBook
+        multipleAddressBook.forEach((k,v) -> {
+            v.contactsList.forEach((x,y) -> {
+                if (y.city.equals(searchCity)){
+                    Contact searchResult = y;
+                    System.out.println(searchResult.toString());
+                }
+            });
+        });
     }
 }

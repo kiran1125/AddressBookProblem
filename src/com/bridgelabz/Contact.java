@@ -24,4 +24,9 @@ public class Contact {
         this.phoneNumber = phoneNumber;
         this.zipCode = zipcode;
     }
+
+    public String toString() {
+        return String.format( "name : " + name + " address : " + address + " city : " + city + " email : " +
+                email + " phoneNumber : " + phoneNumber + " zipCode : " + zipCode);
+    }
 }
