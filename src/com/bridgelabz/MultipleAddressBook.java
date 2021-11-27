@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MultipleAddressBook {
     //collection to store the addressBook

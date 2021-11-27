@@ -1,8 +1,10 @@
 package com.bridgelabz;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  *This class is to manage the contacts
@@ -48,6 +50,9 @@ public class AddressBook {
         contact = new Contact(name, address, city, state, email, phoneNumber, zipCode);
         //adding the contact in to the map using contact name as key and value as contact object
         contactsList.put(contact.name, contact);
+        contactsList.entrySet().stream().sorted(Comparator.comparing( e-> {
+            return e.getKey();
+        }));
     }
 
     /**
