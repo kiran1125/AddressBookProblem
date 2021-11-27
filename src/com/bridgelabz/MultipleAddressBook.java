@@ -79,4 +79,8 @@ public class MultipleAddressBook {
             });
         });
     }
+    public int countOfContactsByCity(){
+        int count = cityList.size();
+        return count;
+    }
 }
